@@ -1,0 +1,8 @@
+{
+    "cgm:weapon": {
+        "ironSight": {
+            "camera": [8.0, 3.625, 25.0],
+            "viewportFov": 60.0
+        }
+    }
+}

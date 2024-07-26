@@ -40,4 +40,5 @@ public class HogBonkerFromBruteAdditionModifier extends LootModifier {
     public Codec<? extends IGlobalLootModifier> codec() {
         return CODEC.get();
     }
+    
 }

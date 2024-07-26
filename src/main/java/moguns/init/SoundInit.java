@@ -136,9 +136,7 @@ public class SoundInit {
 	
 	//Method to help us register sounds
 	private static RegistryObject<SoundEvent> register(String key) {
-			
 		return SOUNDS.register(key, () -> new SoundEvent(new ResourceLocation(MoGuns.MOD_ID, key)));
-	        
 	}
 
 }

@@ -24,7 +24,6 @@ public class HellfireModel implements IOverrideModel {
 	@SuppressWarnings("resource")
 	@Override
 	public void render(float partialTicks, TransformType transformType, ItemStack stack, ItemStack parent, LivingEntity entity, PoseStack matrixStack, MultiBufferSource buffer, int light, int overlay) {
-		
 		//Renders the static parts of the model.
 		RenderUtil.renderModel(SpecialModels.HELLFIRE_MAIN.getModel(), stack, matrixStack, buffer, light, overlay);
 		
@@ -36,9 +35,8 @@ public class HellfireModel implements IOverrideModel {
 		
 		if(Gun.getAttachment(IAttachment.Type.STOCK, stack).getItem() == ModItems.WEIGHTED_STOCK.get())
 			RenderUtil.renderModel(SpecialModels.HEAVY_HELLFIRE_STOCK.getModel(), stack, matrixStack, buffer, light, overlay);
-		
+
 		if(entity.equals(Minecraft.getInstance().player)) {
-			
 			//Always push.
             matrixStack.pushPose();
             //Don't touch this, it's better to use the display options in Blockbench.
@@ -58,15 +56,11 @@ public class HellfireModel implements IOverrideModel {
             RenderUtil.renderModel(SpecialModels.HELLFIRE_SLIDE.getModel(), stack, matrixStack, buffer, light, overlay);
             //Always pop
             matrixStack.popPose();
-			
 		}
-		
 	}
 	
 	private double ease(double x) {
-		
 		return 1 - Math.pow(1 - (2 * x), 4);
-        
     }
 
 }

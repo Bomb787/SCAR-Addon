@@ -1,9 +1,12 @@
 package moguns.init;
 
+import java.util.function.BiFunction;
+
 import moguns.MoGuns;
 import moguns.entities.FireballProjectileEntity;
 import moguns.entities.FlareProjectileEntity;
 import moguns.entities.TakiProjectileEntity;
+import moguns.entities.ThrownFireballEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -11,8 +14,6 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.BiFunction;
 
 /**
  * This class is where all of the mod's entities are registered.
@@ -26,6 +27,7 @@ public class EntityInit {
 	public static final RegistryObject<EntityType<TakiProjectileEntity>> TAKI = registerBasic("taki", TakiProjectileEntity::new);
 	public static final RegistryObject<EntityType<FireballProjectileEntity>> FLAMMABLE_GEL = registerBasic("magma_cream", FireballProjectileEntity::new);
 	public static final RegistryObject<EntityType<FlareProjectileEntity>> FLARE = registerBasic("flare", FlareProjectileEntity::new);
+	public static final RegistryObject<EntityType<ThrownFireballEntity>> FIRE = registerBasic("fire", ThrownFireballEntity::new);
     
 	/**
      * This is a helper method when registering projectiles.
@@ -35,7 +37,6 @@ public class EntityInit {
      * @author Mr. Pineapple
      */
 	private static <T extends Entity> RegistryObject<EntityType<T>> registerBasic(String id, BiFunction<EntityType<T>, Level, T> function) {
-		
         return ENTITIES.register(id, () -> EntityType.Builder.of(function::apply, MobCategory.MISC)
                 .sized(0.25F, 0.25F)
                 .setTrackingRange(100)
@@ -43,7 +44,6 @@ public class EntityInit {
                 .noSummon()
                 .fireImmune()
                 .setShouldReceiveVelocityUpdates(true).build(id));
-        
     }
-
+	
 }

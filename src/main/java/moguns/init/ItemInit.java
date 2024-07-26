@@ -116,7 +116,7 @@ public class ItemInit {
 	public static final RegistryObject<GunItem> PPSH = ITEMS.register("ppsh_41",
 			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
-	public static final RegistryObject<GunItem> MICRO_UZI = ITEMS.register("micro_uzi",
+	public static final RegistryObject<GunItem> MICRO_UZI = ITEMS.register("micro_uzi.cgmmeta",
 			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
 	public static final RegistryObject<GunItem> DOUBLE_BARREL = ITEMS.register("double_barrel",
@@ -147,8 +147,10 @@ public class ItemInit {
 			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
 	//Scope Items
+	/*public static final RegistryObject<ScopeItem> REFLEX_SIGHT = ITEMS.register("reflex_sight",
+			() -> new ScopeItem(Scope.create(0.1F, 2F, GunModifiers.SLOW_ADS).viewFinderOffset(0.3), new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));*/
 	public static final RegistryObject<ScopeItem> REFLEX_SIGHT = ITEMS.register("reflex_sight",
-			() -> new ScopeItem(Scope.create(0.1F, 2F, GunModifiers.SLOW_ADS).viewFinderOffset(0.3), new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
+			() -> new ScopeItem(Scope.builder().aimFovModifier(1.1F).modifiers(GunModifiers.SLOW_ADS).build(), new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
 	//Ammo Items
 	public static final RegistryObject<Item> AMMO762X51 = ITEMS.register("762x51",

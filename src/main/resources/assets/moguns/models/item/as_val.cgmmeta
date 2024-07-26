@@ -1,0 +1,13 @@
+{
+    "cgm:weapon": {
+        "attachments": {
+             "scope": {
+                "translation": [8.0, 3.85, 12.0]
+            }
+        },
+        "ironSight": {
+            "camera": [8.0, 5.2, 20.0],
+            "viewportFov": 60.0
+        }
+    }
+}

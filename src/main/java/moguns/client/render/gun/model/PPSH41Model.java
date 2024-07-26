@@ -17,12 +17,10 @@ public class PPSH41Model implements IOverrideModel {
 	@SuppressWarnings("resource")
 	@Override
 	public void render(float partialTicks, TransformType transformType, ItemStack stack, ItemStack parent, LivingEntity entity, PoseStack matrixStack, MultiBufferSource buffer, int light, int overlay) {
-		
 		//Renders the static parts of the model.
 		RenderUtil.renderModel(SpecialModels.PPSH_41_MAIN.getModel(), stack, matrixStack, buffer, light, overlay);
 		
 		if(entity.equals(Minecraft.getInstance().player)) {
-			
 			//Always push.
             matrixStack.pushPose();
             //Don't touch this, it's better to use the display options in Blockbench.
@@ -41,9 +39,7 @@ public class PPSH41Model implements IOverrideModel {
             RenderUtil.renderModel(SpecialModels.PPSH_41_BOLT.getModel(), stack, matrixStack, buffer, light, overlay);
             //Always pop
             matrixStack.popPose();
-			
 		}
-		
 	}
 
 }

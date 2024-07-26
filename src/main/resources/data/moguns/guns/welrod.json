@@ -23,11 +23,6 @@
         "reload": "cgm:item.pistol.reload",
         "cock": "moguns:item.welrod.cock"
     },
-    "display": {
-        "flash": {
-            "yOffset": 3
-        }
-    },
     "modules": {
         "zoom": {
             "fovModifier": 0.7,

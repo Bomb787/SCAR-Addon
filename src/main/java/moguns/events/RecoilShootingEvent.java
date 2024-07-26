@@ -24,32 +24,27 @@ import net.minecraftforge.fml.common.Mod;
 public class RecoilShootingEvent {
 	
 	private static RecoilShootingEvent instance;
+	private static Random rand = new Random();
 
     public static RecoilShootingEvent get() {
-    	
         if(instance == null)
             instance = new RecoilShootingEvent();
-        
         return instance;
     }
     
     private RecoilShootingEvent() {}
 	
 	//Our variable, currently null but will be assigned either a 1 or 0 every time a gun is shot.
-	public static int recoilRand;
+	private static int recoilRand;
 		
 	//This method is called every time a gun is shot.
 	@SubscribeEvent
 	public static void preShoot(Pre event) {
-		
 		if(!event.isClient()) {
-		
 			if(!(event.getStack().getItem() instanceof GunItem))
 				return;
-		    recoilRand = new Random().nextInt(2);
-	    
+		    recoilRand = rand.nextInt(2);
 		}
-		
 	}
 	
 	//These two variables determine the amount and progress of the recoil.
@@ -58,12 +53,9 @@ public class RecoilShootingEvent {
 	
 	@SubscribeEvent
 	public void onGunFire(GunFireEvent.Post event) {
-		
 		if(event.isClient()) {
-			
 			if(!Config.SERVER.enableCameraRecoil.get())
 	            return;
-			
 			ItemStack heldItem = event.getStack();
 			GunItem gunItem = (GunItem) heldItem.getItem();
 		    Gun modifiedGun = gunItem.getModifiedGun(heldItem);
@@ -71,9 +63,7 @@ public class RecoilShootingEvent {
 		    recoilModifier *= RecoilHandler.get().getAdsRecoilReduction(modifiedGun);
 		    cameraRecoil = modifiedGun.getGeneral().getRecoilAngle() * recoilModifier;
 		    progressCameraRecoil = 0F;
-			
 		}
-	    
 	}
 	
 	/*
@@ -82,49 +72,35 @@ public class RecoilShootingEvent {
 	*/
 	@SubscribeEvent
 	public void onRenderTick(TickEvent.RenderTickEvent event) {
-	    
 	    if(event.phase != TickEvent.Phase.END || cameraRecoil <= 0)
 	        return;
-	    
 	    Minecraft mc = Minecraft.getInstance();
 	    if(mc.player == null)
 	        return;
-	    
 	    if(!Config.SERVER.enableCameraRecoil.get())
 	        return;
 	    
 	    float recoilAmount = this.cameraRecoil * mc.getDeltaFrameTime() * 0.15F;
         float startProgress = this.progressCameraRecoil / this.cameraRecoil;
         float endProgress = (this.progressCameraRecoil + recoilAmount) / this.cameraRecoil;
-        
         float yaw = mc.player.getYRot();
-        
 	    if(startProgress < 0.2F) {
-	        
 	        if(recoilRand == 1)
 	        	mc.player.setYRot(yaw - ((endProgress - startProgress) / 0.2F) * this.cameraRecoil/2);
 	        else
 	        	mc.player.setYRot(yaw + ((endProgress - startProgress) / 0.2F) * this.cameraRecoil/2);
 	            
-	    }
-	    else {
-	        	
+	    } else {
 	        if(recoilRand == 1)
 	        	mc.player.setYRot(yaw + ((endProgress - startProgress) / 0.8F) * this.cameraRecoil/2);
 	        else
 	        	mc.player.setYRot(yaw - ((endProgress - startProgress) / 0.8F) * this.cameraRecoil/2);
-	            
 	    }
-	    
 	    this.progressCameraRecoil += recoilAmount;
-	    
 	    if(this.progressCameraRecoil >= this.cameraRecoil) {
-	        	
 	        this.cameraRecoil = 0;
 	        this.progressCameraRecoil = 0;
-	            
 	    }
-	       
 	}
 	
 }

@@ -11,17 +11,14 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = MoGuns.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MoGunsClient {
-	
 	/**
 	 * Registers the default CGM bullet renderer to the Taki entity
 	 */
 	@SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-		
         event.registerEntityRenderer(EntityInit.TAKI.get(), ProjectileRenderer::new);
         event.registerEntityRenderer(EntityInit.FLAMMABLE_GEL.get(), ProjectileRenderer::new);
 		event.registerEntityRenderer(EntityInit.FLARE.get(), ProjectileRenderer::new);
-        
     }
 
 }

@@ -48,86 +48,57 @@ public class FlareProjectileEntity extends ProjectileEntity {
 	
 	@Override
 	protected void onProjectileTick() {
-		
 		if(this.level.isClientSide) {
-
 			for(int i = 0; i < 2; i++) {
                 this.level.addParticle(ParticleInit.FLARE_SMOKE.get(), true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
                 this.level.addParticle(ParticleTypes.LAVA, true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
                 this.level.addParticle(ParticleTypes.LAVA, true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
                 this.level.addParticle(ParticleTypes.LAVA, true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
             }
-			
 		}
-		
 	}
 	
 	@Override
 	public void tick() {
 		super.tick();
-		
 		if(!this.level.isClientSide) {
-			
 			Vec3 startVec = this.position();
             Vec3 endVec = startVec.add(this.getDeltaMovement());
-            
             HitResult result = rayTraceBlocks(this.level, new ClipContext(startVec, endVec, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this), IGNORE_LEAVES);
-			
             this.onHit(result, startVec, endVec);
-            
 		}
-		
-		
 	}
 	
 	@Override
 	protected void onHitEntity(Entity entity, Vec3 hitVec, Vec3 startVec, Vec3 endVec, boolean headshot) {
 		super.onHitEntity(entity, hitVec, startVec, endVec, headshot);
-		
 		entity.setSecondsOnFire(20);
-		
 	}
 	
 	/**
 	 * Sets blocks on fire
 	 */
 	private void onHit(HitResult result, Vec3 startVec, Vec3 endVec) {
-		
 		if(MinecraftForge.EVENT_BUS.post(new GunProjectileHitEvent(result, this))) {
-			
             return;
-            
         }
-
         if(result instanceof BlockHitResult) {
-        	
             BlockHitResult blockRayTraceResult = (BlockHitResult) result;
-            
             if(blockRayTraceResult.getType() == HitResult.Type.MISS) {
                 return;
             }
-
             Vec3 hitVec = result.getLocation();
             BlockPos pos = blockRayTraceResult.getBlockPos();
-            
             if(Config.COMMON.gameplay.griefing.setFireToBlocks.get()) {
-            	
                 BlockPos offsetPos = pos.relative(blockRayTraceResult.getDirection());
-                
                 if(BaseFireBlock.canBePlacedAt(this.level, offsetPos, blockRayTraceResult.getDirection())) {
-                	
                     BlockState fireState = BaseFireBlock.getState(this.level, offsetPos);
                     this.level.setBlock(offsetPos, fireState, 11);
                     ((ServerLevel) this.level).sendParticles(ParticleTypes.LAVA, hitVec.x - 1.0 + this.random.nextDouble() * 2.0, hitVec.y, hitVec.z - 1.0 + this.random.nextDouble() * 2.0, 4, 0, 0, 0, 0);
-                    
                 }
-                
             }
-            
             return;
-            
         }
-		
 	}
 
 	/**
@@ -142,7 +113,6 @@ public class FlareProjectileEntity extends ProjectileEntity {
      * @return a result of the raytrace
      */
     private static BlockHitResult rayTraceBlocks(Level world, ClipContext context, Predicate<BlockState> ignorePredicate) {
-    	
         return performRayTrace(context, (rayTraceContext, blockPos) -> {
             BlockState blockState = world.getBlockState(blockPos);
             if(ignorePredicate.test(blockState)) return null;
@@ -160,7 +130,6 @@ public class FlareProjectileEntity extends ProjectileEntity {
             Vec3 Vector3d = rayTraceContext.getFrom().subtract(rayTraceContext.getTo());
             return BlockHitResult.miss(rayTraceContext.getTo(), Direction.getNearest(Vector3d.x, Vector3d.y, Vector3d.z), new BlockPos(rayTraceContext.getTo()));
         });
-        
     }
     
     /*
@@ -169,12 +138,9 @@ public class FlareProjectileEntity extends ProjectileEntity {
     private static <T> T performRayTrace(ClipContext context, BiFunction<ClipContext, BlockPos, T> hitFunction, Function<ClipContext, T> p_217300_2_) {
         Vec3 startVec = context.getFrom();
         Vec3 endVec = context.getTo();
-        if(startVec.equals(endVec))
-        {
+        if(startVec.equals(endVec)) {
             return p_217300_2_.apply(context);
-        }
-        else
-        {
+        } else {
             double startX = Mth.lerp(-0.0000001, endVec.x, startVec.x);
             double startY = Mth.lerp(-0.0000001, endVec.y, startVec.y);
             double startZ = Mth.lerp(-0.0000001, endVec.z, startVec.z);
@@ -186,8 +152,7 @@ public class FlareProjectileEntity extends ProjectileEntity {
             int blockZ = Mth.floor(endZ);
             BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos(blockX, blockY, blockZ);
             T t = hitFunction.apply(context, mutablePos);
-            if(t != null)
-            {
+            if(t != null) {
                 return t;
             }
 
@@ -204,41 +169,30 @@ public class FlareProjectileEntity extends ProjectileEntity {
             double d13 = d10 * (signY > 0 ? 1.0D - Mth.frac(endY) : Mth.frac(endY));
             double d14 = d11 * (signZ > 0 ? 1.0D - Mth.frac(endZ) : Mth.frac(endZ));
 
-            while(d12 <= 1.0D || d13 <= 1.0D || d14 <= 1.0D)
-            {
-                if(d12 < d13)
-                {
-                    if(d12 < d14)
-                    {
+            while(d12 <= 1.0D || d13 <= 1.0D || d14 <= 1.0D) {
+                if(d12 < d13) {
+                    if(d12 < d14) {
                         blockX += signX;
                         d12 += d9;
-                    }
-                    else
-                    {
+                    } else {
                         blockZ += signZ;
                         d14 += d11;
                     }
-                }
-                else if(d13 < d14)
-                {
+                } else if(d13 < d14) {
                     blockY += signY;
                     d13 += d10;
-                }
-                else
-                {
+                } else {
                     blockZ += signZ;
                     d14 += d11;
                 }
 
                 T t1 = hitFunction.apply(context, mutablePos.set(blockX, blockY, blockZ));
-                if(t1 != null)
-                {
+                if(t1 != null) {
                     return t1;
                 }
             }
-
             return p_217300_2_.apply(context);
         }
     }
-
+    
 }

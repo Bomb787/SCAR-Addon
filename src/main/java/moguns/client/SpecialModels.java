@@ -15,7 +15,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
  */
 @EventBusSubscriber(modid = MoGuns.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public enum SpecialModels {
-
     //The values in this class are stored here so we can call upon them.
     LIGHT_SCAR_L_STOCK("light_scar_l_stock"),
     TACTICAL_SCAR_L_STOCK("tactical_scar_l_stock"),
@@ -100,8 +99,18 @@ public enum SpecialModels {
     AWP_BOLT("awp_bolt"),
     AWP_CHAMBER("awp_chamber"),
     DOUBLE_BARREL_MAIN("double_barrel_main"),
-    DOUBLE_BARREL_BARRELS("double_barrel_barrels");
-
+    DOUBLE_BARREL_BARRELS("double_barrel_barrels"),
+    BAKER_RIFLE("baker_rifle"),
+    BIG_IRON("big_iron"),
+    FLAMER("flamer"),
+    FLARE_GUN("flare_gun"),
+    GLOCKEST_GLOCK("glockest_glock"),
+    M2("m2"),
+    M16A1("m16a1"),
+    MICRO_UZI("micro_uzi.cgmmeta"),
+    MP5("mp5"),
+    TRASHCAN("trashcan"),
+    UZI("uzi");
     //Variables
     private final ResourceLocation modelLocation;
     private final boolean specialModel;

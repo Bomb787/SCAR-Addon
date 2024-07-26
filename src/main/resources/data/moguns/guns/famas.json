@@ -25,14 +25,14 @@
     },
     "display": {
         "flash": {
-            "yOffset": 2.9,
+            "yOffset": 3.0,
             "zOffset": -6
         }
     },
     "modules": {
         "zoom": {
             "fovModifier": 0.6,
-            "yOffset": 5.8,
+            "yOffset": 5.85,
             "zOffset": 2.75
         },
         "attachments": {

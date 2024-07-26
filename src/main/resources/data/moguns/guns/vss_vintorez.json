@@ -25,12 +25,6 @@
         "reload": "cgm:item.pistol.reload",
         "cock": "moguns:item.as_val.cock"
     },
-    "display": {
-        "flash": {
-            "yOffset": 3.6,
-            "zOffset": -8.41
-        }
-    },
     "modules": {
         "zoom": {
             "fovModifier": 0.6,

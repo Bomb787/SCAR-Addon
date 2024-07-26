@@ -32,12 +32,12 @@
     "modules": {
         "zoom": {
             "fovModifier": 0.6,
-            "yOffset": 4.8,
+            "yOffset": 5.0,
             "zOffset": 2.75
         },
         "attachments": {
             "scope": {
-                "yOffset": 4.3,
+                "yOffset": 4.4,
                 "zOffset": 4.0
             }
         }
