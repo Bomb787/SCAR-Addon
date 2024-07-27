@@ -58,7 +58,6 @@ public class MoGuns {
 		ParticleInit.PARTICLES.register(bus);
 		ModLootModifiers.register(bus);
 		bus.addListener(this::onClientSetup);
-		
 	}
 	
 	//This is the common setup event, only really registers the Taki entity to the item
@@ -99,7 +98,6 @@ public class MoGuns {
 		ModelOverrides.register(ItemInit.WRAPPED_RIFLE.get(), new WrappedRifleModel());
 		ModelOverrides.register(ItemInit.HELLFIRE.get(), new HellfireModel());
 		ModelOverrides.register(ItemInit.BLUE_HEAT.get(), new BlueHeatModel());
-		ModelOverrides.register(ItemInit.HOG_BONKER.get(), new HogBonkerModel());
 		ModelOverrides.register(ItemInit.HOG_BONKER.get(), new HogBonkerModel());
 		ModelOverrides.register(ItemInit.DOUBLE_BARREL.get(), new DoubleBarrelModel());
 		MinecraftForge.EVENT_BUS.register(RecoilShootingEvent.get());
