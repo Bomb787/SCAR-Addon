@@ -4,7 +4,7 @@ license="GNU GPLv3" #mandatory
 
 [[mods]]
 modId="moguns"
-version="1.9.2"
+version="1.10.0"
 displayName="Mo' Guns"
 authors="Code by Bomb787, art by AlanorMiga"
 credits="MrCrayfish, Bomb787, AlanorMiga, GlobalHive"
@@ -21,7 +21,7 @@ description='A simple addon for MrCrayfishs Gun Mod'
 [[dependencies.moguns]]
     modId="forge"
     mandatory=true
-    versionRange="[40,)"
+    versionRange="[43.2.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.moguns]]
@@ -33,12 +33,12 @@ description='A simple addon for MrCrayfishs Gun Mod'
 [[dependencies.moguns]]
     modId="cgm"
     mandatory=true
-    versionRange="[1.2.8,)"
+    versionRange="[1.3.7,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.moguns]]
     modId="framework"
     mandatory=true
-    versionRange="[0.4.0,)"
+    versionRange="[0.6.16,)"
     ordering="NONE"
     side="BOTH"
