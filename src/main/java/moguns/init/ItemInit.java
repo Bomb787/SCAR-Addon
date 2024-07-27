@@ -116,7 +116,7 @@ public class ItemInit {
 	public static final RegistryObject<GunItem> PPSH = ITEMS.register("ppsh_41",
 			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
-	public static final RegistryObject<GunItem> MICRO_UZI = ITEMS.register("micro_uzi.cgmmeta",
+	public static final RegistryObject<GunItem> MICRO_UZI = ITEMS.register("micro_uzi",
 			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
 	public static final RegistryObject<GunItem> DOUBLE_BARREL = ITEMS.register("double_barrel",
@@ -145,10 +145,23 @@ public class ItemInit {
 
 	public static final RegistryObject<GunItem> FLARE_GUN = ITEMS.register("flare_gun",
 			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
+
+	public static final RegistryObject<GunItem> M16_LSW = ITEMS.register("m16_lsw",
+			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
+
+	public static final RegistryObject<GunItem> M60 = ITEMS.register("m60",
+			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
+
+	public static final RegistryObject<GunItem> M107 = ITEMS.register("m107",
+			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
+
+	public static final RegistryObject<GunItem> M249 = ITEMS.register("m249",
+			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
+
+	public static final RegistryObject<GunItem> TAT = ITEMS.register("tat",
+			() -> new GunItem(new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
 	//Scope Items
-	/*public static final RegistryObject<ScopeItem> REFLEX_SIGHT = ITEMS.register("reflex_sight",
-			() -> new ScopeItem(Scope.create(0.1F, 2F, GunModifiers.SLOW_ADS).viewFinderOffset(0.3), new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));*/
 	public static final RegistryObject<ScopeItem> REFLEX_SIGHT = ITEMS.register("reflex_sight",
 			() -> new ScopeItem(Scope.builder().aimFovModifier(1.1F).modifiers(GunModifiers.SLOW_ADS).build(), new Item.Properties().stacksTo(1).tab(MoGuns.GROUP)));
 	
@@ -199,6 +212,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> FLARE = ITEMS.register("flare",
 			() -> new AmmoItem(new Item.Properties().stacksTo(8).tab(MoGuns.GROUP)));
+
+	public static final RegistryObject<Item> AMMO50BMG = ITEMS.register("50_bmg",
+			() -> new AmmoItem(new Item.Properties().tab(MoGuns.GROUP)));
 	
 	//Misc Items
 	public static final RegistryObject<TrumpetItem> TRUMPET = ITEMS.register("trumpet",

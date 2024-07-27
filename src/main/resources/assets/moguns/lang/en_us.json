@@ -80,6 +80,11 @@
 	"item.moguns.m2": "M2 Flamethrower",
 	"item.moguns.flamer": "Flamer",
 	"item.moguns.flare_gun": "Flare Gun",
+	"item.moguns.m16_lsw": "M16 LSW",
+	"item.moguns.m60": "M60",
+	"item.moguns.m107": "M107",
+	"item.moguns.m249": "M249",
+	"item.moguns.tat": "Triple Action Thunder",
 
 	//Attachments
 	"item.moguns.reflex_sight": "Reflex Sight",
@@ -100,6 +105,7 @@
 	"item.moguns.x_mas_light": "X-mas Light",
 	"item.moguns.taki": "Taki",
 	"item.moguns.flare": "Flare",
+	"item.moguns.50_bmg": ".50 BMG",
 	
 	//Entities
 	"entity.moguns.taki": "Taki",

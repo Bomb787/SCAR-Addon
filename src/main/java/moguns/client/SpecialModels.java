@@ -107,10 +107,18 @@ public enum SpecialModels {
     GLOCKEST_GLOCK("glockest_glock"),
     M2("m2"),
     M16A1("m16a1"),
-    MICRO_UZI("micro_uzi.cgmmeta"),
+    MICRO_UZI("micro_uzi"),
     MP5("mp5"),
     TRASHCAN("trashcan"),
-    UZI("uzi");
+    UZI("uzi"),
+    M16_LSW("m16_lsw"),
+    M60("m60"),
+    M107_MAIN("m107_main"),
+    M107_BARREL("m107_barrel"),
+    M107_BOLT("m107_bolt"),
+    M107_SIGHTS("m107_sights"),
+    M249("m249"),
+    TAT("tat");
     //Variables
     private final ResourceLocation modelLocation;
     private final boolean specialModel;

@@ -21,7 +21,8 @@
     "sounds": {
         "fire": "moguns:item.m14_ebr.fire",
         "reload": "cgm:item.pistol.reload",
-        "cock": "moguns:item.m14_ebr.cock"
+        "cock": "moguns:item.m14_ebr.cock",
+        "silencedFire": "moguns:item.scar_l.suppressed_fire"
     },
     "display": {
         "flash": {

@@ -5,34 +5,7 @@ import com.mrcrayfish.guns.client.render.gun.model.SimpleModel;
 import com.mrcrayfish.guns.common.ProjectileManager;
 
 import moguns.client.SpecialModels;
-import moguns.client.render.gun.model.AKMCustomModel;
-import moguns.client.render.gun.model.AKMModel;
-import moguns.client.render.gun.model.ASVALModel;
-import moguns.client.render.gun.model.AWPModel;
-import moguns.client.render.gun.model.BenelliModel;
-import moguns.client.render.gun.model.BlueHeatModel;
-import moguns.client.render.gun.model.ButterflyModel;
-import moguns.client.render.gun.model.DoubleBarrelModel;
-import moguns.client.render.gun.model.FamasModel;
-import moguns.client.render.gun.model.G36CModel;
-import moguns.client.render.gun.model.Glock17Model;
-import moguns.client.render.gun.model.HellfireModel;
-import moguns.client.render.gun.model.HogBonkerModel;
-import moguns.client.render.gun.model.LanchesterModel;
-import moguns.client.render.gun.model.M14EBRModel;
-import moguns.client.render.gun.model.M14Model;
-import moguns.client.render.gun.model.M1911Model;
-import moguns.client.render.gun.model.M1GarandModel;
-import moguns.client.render.gun.model.MossbergModel;
-import moguns.client.render.gun.model.PPSH41Model;
-import moguns.client.render.gun.model.Remington870Model;
-import moguns.client.render.gun.model.ScarHModel;
-import moguns.client.render.gun.model.ScarLModel;
-import moguns.client.render.gun.model.ThompsonModel;
-import moguns.client.render.gun.model.VSSVintorezModel;
-import moguns.client.render.gun.model.WaltherPPKModel;
-import moguns.client.render.gun.model.WelrodModel;
-import moguns.client.render.gun.model.WrappedRifleModel;
+import moguns.client.render.gun.model.*;
 import moguns.entities.FireballProjectileEntity;
 import moguns.entities.FlareProjectileEntity;
 import moguns.entities.TakiProjectileEntity;
@@ -141,6 +114,11 @@ public class MoGuns {
 		ModelOverrides.register(ItemInit.MP5.get(), new SimpleModel(SpecialModels.MP5::getModel));
 		ModelOverrides.register(ItemInit.TRASHCAN.get(), new SimpleModel(SpecialModels.TRASHCAN::getModel));
 		ModelOverrides.register(ItemInit.UZI.get(), new SimpleModel(SpecialModels.UZI::getModel));
+		ModelOverrides.register(ItemInit.M16_LSW.get(), new SimpleModel(SpecialModels.M16_LSW::getModel));
+		ModelOverrides.register(ItemInit.M60.get(), new SimpleModel(SpecialModels.M60::getModel));
+		ModelOverrides.register(ItemInit.M107.get(), new M107CustomModel());
+		ModelOverrides.register(ItemInit.M249.get(), new SimpleModel(SpecialModels.M249::getModel));
+		ModelOverrides.register(ItemInit.TAT.get(), new SimpleModel(SpecialModels.TAT::getModel));
 	}
 	
 }

@@ -1,0 +1,51 @@
+{
+    "general": {
+        "auto": true,
+        "rate": 2,
+        "gripType": "cgm:two_handed",
+        "maxAmmo": 200,
+        "reloadAmount": 10,
+        "recoilKick": 0.15,
+        "recoilAngle": 2,
+        "alwaysSpread": true,
+        "spread": 3.0
+    },
+    "projectile": {
+        "item": "moguns:556x45",
+        "visible": false,
+        "damage": 6.0,
+        "size": 0.2,
+        "speed": 30.0,
+        "life": 100
+    },
+    "sounds": {
+        "fire": "moguns:item.m60.fire",
+        "reload": "cgm:item.pistol.reload",
+        "cock": "moguns:item.m60.cock",
+        "silencedFire": "moguns:item.scar_l.suppressed_fire"
+    },
+    "display": {
+        "flash": {
+            "yOffset": 5.0,
+            "zOffset": -16
+        }
+    },
+    "modules": {
+        "zoom": {
+            "fovModifier": 0.6,
+            "yOffset": 6.85,
+            "zOffset": -1.0
+        },
+        "attachments": {
+            "scope": {
+                "yOffset": 6.85,
+                "zOffset": -1.0
+            },
+            "barrel": {
+                "yOffset": 4.65,
+                "zOffset": -16,
+                "scale": 0.75
+            }
+        }
+    }
+}

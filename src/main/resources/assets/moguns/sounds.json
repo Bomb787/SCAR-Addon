@@ -359,5 +359,29 @@
     "sounds": [
       { "name": "moguns:item/doot" }
     ]
+  },
+  "item.50_bmg.fire": {
+    "subtitle": "subtitle.cgm.fire",
+    "sounds": [
+      { "name": "moguns:item/50_bmg_fire" }
+    ]
+  },
+  "item.50_bmg.cock": {
+    "subtitle": "subtitle.cgm.cock",
+    "sounds": [
+      { "name": "moguns:item/50_bmg_cock" }
+    ]
+  },
+  "item.m60.fire": {
+    "subtitle": "subtitle.cgm.fire",
+    "sounds": [
+      { "name": "moguns:item/m60_fire" }
+    ]
+  },
+  "item.m60.cock": {
+    "subtitle": "subtitle.cgm.cock",
+    "sounds": [
+      { "name": "moguns:item/m60_cock" }
+    ]
   }
 }
