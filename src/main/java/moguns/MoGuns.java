@@ -1,37 +1,11 @@
 package moguns;
 
 import com.mrcrayfish.guns.client.render.gun.ModelOverrides;
+import com.mrcrayfish.guns.client.render.gun.model.SimpleModel;
 import com.mrcrayfish.guns.common.ProjectileManager;
 
-import moguns.client.render.gun.model.AKMCustomModel;
-import moguns.client.render.gun.model.AKMModel;
-import moguns.client.render.gun.model.ASVALModel;
-import moguns.client.render.gun.model.AWPModel;
-import moguns.client.render.gun.model.BenelliModel;
-import moguns.client.render.gun.model.BlueHeatModel;
-import moguns.client.render.gun.model.ButterflyModel;
-import moguns.client.render.gun.model.DoubleBarrelModel;
-import moguns.client.render.gun.model.FamasModel;
-import moguns.client.render.gun.model.G36CModel;
-import moguns.client.render.gun.model.Glock17Model;
-import moguns.client.render.gun.model.HellfireModel;
-import moguns.client.render.gun.model.HogBonkerModel;
-import moguns.client.render.gun.model.LanchesterModel;
-import moguns.client.render.gun.model.M14EBRModel;
-import moguns.client.render.gun.model.M14Model;
-import moguns.client.render.gun.model.M1911Model;
-import moguns.client.render.gun.model.M1GarandModel;
-import moguns.client.render.gun.model.MossbergModel;
-import moguns.client.render.gun.model.PPSH41Model;
-import moguns.client.render.gun.model.ReflexSightModel;
-import moguns.client.render.gun.model.Remington870Model;
-import moguns.client.render.gun.model.ScarHModel;
-import moguns.client.render.gun.model.ScarLModel;
-import moguns.client.render.gun.model.ThompsonModel;
-import moguns.client.render.gun.model.VSSVintorezModel;
-import moguns.client.render.gun.model.WaltherPPKModel;
-import moguns.client.render.gun.model.WelrodModel;
-import moguns.client.render.gun.model.WrappedRifleModel;
+import moguns.client.SpecialModels;
+import moguns.client.render.gun.model.*;
 import moguns.entities.FireballProjectileEntity;
 import moguns.entities.FlareProjectileEntity;
 import moguns.entities.TakiProjectileEntity;
@@ -63,49 +37,38 @@ public class MoGuns {
 		 */
 		@Override
 		public ItemStack makeIcon() {
-			
 			//Gets the gun item, unneeded if you're not gonna use a gun.
 			ItemStack stack = new ItemStack(ItemInit.SCAR_L.get());
 			//Makes sure that the icon gun has full ammo so the durability bar doesn't show up.
 			stack.getOrCreateTag().putInt("AmmoCount", ItemInit.SCAR_L.get().getGun().getGeneral().getMaxAmmo());
 			//Returns the loaded gun icon.
 	        return stack;
-			
 		}
     };
 	
 	public MoGuns() {
-		
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		bus.addListener(this::setup);
-		
 		MinecraftForge.EVENT_BUS.register(this);
-		
 		//Registers all of the Deferred Registers from our init classes.
 		ItemInit.ITEMS.register(bus);
 		SoundInit.SOUNDS.register(bus);
 		EntityInit.ENTITIES.register(bus);
 		ParticleInit.PARTICLES.register(bus);
-		
 		bus.addListener(this::onClientSetup);
-		
 	}
 	
 	//This is the common setup event, only really registers the Taki entity to the item
 	private void setup(final FMLCommonSetupEvent event) {
-			
 		System.out.println("MoGuns preinit, if you're reading this then I hope you're having a nice day :)");
 		System.out.println("Slava Ukraini! Heroiam Slava!");
-		
 		ProjectileManager.getInstance().registerFactory(ItemInit.AMMO_TAKI.get(), ((world, livingEntity, itemStack, gunItem, gun) -> new TakiProjectileEntity(EntityInit.TAKI.get(), world, livingEntity, itemStack, gunItem, gun)));
 		ProjectileManager.getInstance().registerFactory(Items.MAGMA_CREAM, ((world, livingEntity, itemStack, gunItem, gun) -> new FireballProjectileEntity(EntityInit.FLAMMABLE_GEL.get(), world, livingEntity, itemStack, gunItem, gun)));
 		ProjectileManager.getInstance().registerFactory(ItemInit.FLARE.get(), ((world, livingEntity, itemStack, gunItem, gun) -> new FlareProjectileEntity(EntityInit.FLARE.get(), world, livingEntity, itemStack, gunItem, gun)));
-			
 	}
 	
 	//This is the client setup event.
 	private void onClientSetup(FMLClientSetupEvent event) {
-		
 		//Register all of our models.
 		ModelOverrides.register(ItemInit.SCAR_L.get(), new ScarLModel());
 		ModelOverrides.register(ItemInit.G36C.get(), new G36CModel());
@@ -113,7 +76,6 @@ public class MoGuns {
 		ModelOverrides.register(ItemInit.AS_VAL.get(), new ASVALModel());
 		ModelOverrides.register(ItemInit.FAMAS.get(), new FamasModel());
 		ModelOverrides.register(ItemInit.M1_GARAND.get(), new M1GarandModel());
-		ModelOverrides.register(ItemInit.REFLEX_SIGHT.get(), new ReflexSightModel());
 		ModelOverrides.register(ItemInit.THOMPSON.get(), new ThompsonModel());
 		ModelOverrides.register(ItemInit.AKM_CUSTOM.get(), new AKMCustomModel());
 		ModelOverrides.register(ItemInit.AWP.get(), new AWPModel());
@@ -136,9 +98,23 @@ public class MoGuns {
 		ModelOverrides.register(ItemInit.BLUE_HEAT.get(), new BlueHeatModel());
 		ModelOverrides.register(ItemInit.HOG_BONKER.get(), new HogBonkerModel());
 		ModelOverrides.register(ItemInit.DOUBLE_BARREL.get(), new DoubleBarrelModel());
-		
 		MinecraftForge.EVENT_BUS.register(RecoilShootingEvent.get());
-	        
+		ModelOverrides.register(ItemInit.BAKER.get(), new SimpleModel(SpecialModels.BAKER_RIFLE::getModel));
+		ModelOverrides.register(ItemInit.BIG_IRON.get(), new SimpleModel(SpecialModels.BIG_IRON::getModel));
+		ModelOverrides.register(ItemInit.FLAMER.get(), new SimpleModel(SpecialModels.FLAMER::getModel));
+		ModelOverrides.register(ItemInit.FLARE_GUN.get(), new SimpleModel(SpecialModels.FLARE_GUN::getModel));
+		ModelOverrides.register(ItemInit.GLOCKEST_GLOCK.get(), new SimpleModel(SpecialModels.GLOCKEST_GLOCK::getModel));
+		ModelOverrides.register(ItemInit.M2.get(), new SimpleModel(SpecialModels.M2::getModel));
+		ModelOverrides.register(ItemInit.M16A1.get(), new SimpleModel(SpecialModels.M16A1::getModel));
+		ModelOverrides.register(ItemInit.MICRO_UZI.get(), new SimpleModel(SpecialModels.MICRO_UZI::getModel));
+		ModelOverrides.register(ItemInit.MP5.get(), new SimpleModel(SpecialModels.MP5::getModel));
+		ModelOverrides.register(ItemInit.TRASHCAN.get(), new SimpleModel(SpecialModels.TRASHCAN::getModel));
+		ModelOverrides.register(ItemInit.UZI.get(), new SimpleModel(SpecialModels.UZI::getModel));
+		ModelOverrides.register(ItemInit.M16_LSW.get(), new SimpleModel(SpecialModels.M16_LSW::getModel));
+		ModelOverrides.register(ItemInit.M60.get(), new SimpleModel(SpecialModels.M60::getModel));
+		ModelOverrides.register(ItemInit.M107.get(), new M107CustomModel());
+		ModelOverrides.register(ItemInit.M249.get(), new SimpleModel(SpecialModels.M249::getModel));
+		ModelOverrides.register(ItemInit.TAT.get(), new SimpleModel(SpecialModels.TAT::getModel));
 	}
 
 }

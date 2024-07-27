@@ -133,6 +133,14 @@ public class SoundInit {
 	public static final RegistryObject<SoundEvent> FLARE_GUN_RELOAD = register("item.flare_gun.reload");
 	
 	public static final RegistryObject<SoundEvent> TRUMPET = register("item.trumpet.doot");
+
+	public static final RegistryObject<SoundEvent> BMG_FIRE = register("item.50_bmg.fire");
+
+	public static final RegistryObject<SoundEvent> BMG_COCK = register("item.50_bmg.cock");
+
+	public static final RegistryObject<SoundEvent> M60_FIRE = register("item.m60.fire");
+
+	public static final RegistryObject<SoundEvent> M60_COCK = register("item.m60.cock");
 	
 	//Method to help us register sounds
 	private static RegistryObject<SoundEvent> register(String key) {

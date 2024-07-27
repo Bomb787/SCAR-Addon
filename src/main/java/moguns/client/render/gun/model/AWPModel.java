@@ -21,12 +21,10 @@ public class AWPModel implements IOverrideModel {
 	@SuppressWarnings("resource")
 	@Override
 	public void render(float partialTicks, TransformType transformType, ItemStack stack, ItemStack parent, LivingEntity entity, PoseStack matrixStack, MultiBufferSource buffer, int light, int overlay) {
-		
 		//Renders the static parts of the model.
 		RenderUtil.renderModel(SpecialModels.AWP_MAIN.getModel(), stack, matrixStack, buffer, light, overlay);
 
         if(entity.equals(Minecraft.getInstance().player)) {
-
             //Always push.
             matrixStack.pushPose();
             //Don't touch this, it's better to use the display options in Blockbench.
@@ -47,7 +45,6 @@ public class AWPModel implements IOverrideModel {
             RenderUtil.renderModel(SpecialModels.AWP_BOLT.getModel(), stack, matrixStack, buffer, light, overlay);
             //Always pop
             matrixStack.popPose();
-            
             //Another push/pop block because the AWP has that big block at the end of the bolt that doesn't turn.
             //Always push.
             matrixStack.pushPose();
@@ -62,15 +59,11 @@ public class AWPModel implements IOverrideModel {
             RenderUtil.renderModel(SpecialModels.AWP_CHAMBER.getModel(), stack, matrixStack, buffer, light, overlay);
             //Always pop
             matrixStack.popPose();
-
         }
-
     }
 
     private double ease(double x) {
-
         return 1 - Math.pow(1 - (2 * x), 4);
-
     }
 
 }

@@ -2,9 +2,6 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"1": "moguns:items/butterfly_gun",
-		"2": "moguns:effect/red_dot_reticle",
-		"3": "moguns:effect/red_dot_reticle_glow",
-		"4": "moguns:effect/scope_vignette",
 		"particle": "moguns:items/butterfly_gun"
 	},
 	"elements": [
@@ -47,39 +44,16 @@
 			}
 		},
 		{
-			"from": [7.7, 3.725, 14.885],
-			"to": [8.3, 4.325, 14.985],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7.9, 7.625, 7.95]},
+			"from": [7.975, 4, 14.885],
+			"to": [8.025, 4.05, 14.885],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.025, 14.885]},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#2"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#2"}
+				"south": {"uv": [8, 12, 9, 13], "texture": "#1"}
 			}
 		},
 		{
-			"from": [7.5, 3.525, 14.885],
-			"to": [8.5, 4.525, 14.985],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7.9, 7.625, 7.95]},
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#4"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#4"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#4"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#4"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#4"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#4"}
-			}
-		},
-		{
-			"from": [7.7, 3.725, 14.885],
-			"to": [8.3, 4.325, 14.985],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7.9, 7.625, 7.95]},
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#3"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
-			}
-		},
-		{
-			"from": [8.5, 3.76, 15.155],
-			"to": [8.7, 4.76, 15.51],
+			"from": [8.5001, 3.76, 15.155],
+			"to": [8.6999, 4.76, 15.51],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8.65, 3.675, 15.85]},
 			"faces": {
 				"north": {"uv": [10, 11, 11, 12], "rotation": 180, "texture": "#1"},
@@ -104,8 +78,8 @@
 			}
 		},
 		{
-			"from": [7.3, 3.76, 15.155],
-			"to": [7.5, 4.76, 15.51],
+			"from": [7.3001, 3.76, 15.155],
+			"to": [7.4999, 4.76, 15.51],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [7.35, 3.675, 15.85]},
 			"faces": {
 				"north": {"uv": [11, 11, 10, 12], "rotation": 180, "texture": "#1"},
@@ -130,67 +104,53 @@
 			}
 		},
 		{
-			"from": [7.5, 4.35, 14.75],
+			"from": [7.5, 4.45, 14.75],
 			"to": [8.5, 4.55, 15.12],
 			"rotation": {"angle": 0, "axis": "x", "origin": [7.35, 3.675, 15.85]},
 			"faces": {
 				"north": {"uv": [11, 11, 10, 12], "rotation": 180, "texture": "#1"},
-				"east": {"uv": [10, 12, 11, 11], "rotation": 90, "texture": "#1"},
 				"south": {"uv": [11, 11, 10, 12], "texture": "#1"},
-				"west": {"uv": [10, 12, 11, 11], "rotation": 270, "texture": "#1"},
 				"up": {"uv": [11, 11, 10, 12], "rotation": 180, "texture": "#1"},
 				"down": {"uv": [11, 11, 10, 12], "texture": "#1"}
 			}
 		},
 		{
-			"from": [7.425, 4.35, 14.75],
-			"to": [7.79, 4.55, 15.12],
-			"rotation": {"angle": 22.5, "axis": "z", "origin": [7.815, 4.45, 14.935]},
+			"from": [7.425, 4.45, 14.7502],
+			"to": [7.79, 4.55, 15.1198],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [7.815, 4.55, 14.935]},
 			"faces": {
 				"north": {"uv": [11, 11, 10, 12], "rotation": 180, "texture": "#1"},
-				"east": {"uv": [10, 12, 11, 11], "rotation": 90, "texture": "#1"},
 				"south": {"uv": [11, 11, 10, 12], "texture": "#1"},
-				"west": {"uv": [10, 12, 11, 11], "rotation": 270, "texture": "#1"},
-				"up": {"uv": [11, 11, 10, 12], "rotation": 180, "texture": "#1"},
 				"down": {"uv": [11, 11, 10, 12], "texture": "#1"}
 			}
 		},
 		{
-			"from": [7.49, 3.91, 14.75],
-			"to": [7.69, 4.275, 15.12],
-			"rotation": {"angle": -22.5, "axis": "z", "origin": [7.815, 4.45, 14.935]},
+			"from": [7.49, 4.01, 14.7501],
+			"to": [7.69, 4.375, 15.1199],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [7.815, 4.55, 14.935]},
 			"faces": {
 				"north": {"uv": [11, 11, 10, 12], "rotation": 270, "texture": "#1"},
 				"east": {"uv": [11, 11, 10, 12], "rotation": 270, "texture": "#1"},
-				"south": {"uv": [11, 11, 10, 12], "rotation": 270, "texture": "#1"},
-				"west": {"uv": [11, 11, 10, 12], "rotation": 90, "texture": "#1"},
-				"up": {"uv": [10, 12, 11, 11], "texture": "#1"},
-				"down": {"uv": [10, 12, 11, 11], "rotation": 180, "texture": "#1"}
+				"south": {"uv": [11, 11, 10, 12], "rotation": 270, "texture": "#1"}
 			}
 		},
 		{
-			"from": [8.31, 3.91, 14.75],
-			"to": [8.51, 4.275, 15.12],
-			"rotation": {"angle": 22.5, "axis": "z", "origin": [8.185, 4.45, 14.935]},
+			"from": [8.31, 4.01, 14.7501],
+			"to": [8.51, 4.375, 15.1199],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [8.185, 4.55, 14.935]},
 			"faces": {
 				"north": {"uv": [11, 12, 10, 11], "rotation": 270, "texture": "#1"},
-				"east": {"uv": [11, 12, 10, 11], "rotation": 90, "texture": "#1"},
 				"south": {"uv": [11, 12, 10, 11], "rotation": 270, "texture": "#1"},
-				"west": {"uv": [11, 12, 10, 11], "rotation": 270, "texture": "#1"},
-				"up": {"uv": [11, 12, 10, 11], "texture": "#1"},
-				"down": {"uv": [11, 12, 10, 11], "rotation": 180, "texture": "#1"}
+				"west": {"uv": [11, 12, 10, 11], "rotation": 270, "texture": "#1"}
 			}
 		},
 		{
-			"from": [8.21, 4.35, 14.75],
-			"to": [8.575, 4.55, 15.12],
-			"rotation": {"angle": -22.5, "axis": "z", "origin": [8.185, 4.45, 14.935]},
+			"from": [8.21, 4.45, 14.7502],
+			"to": [8.575, 4.55, 15.1198],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8.185, 4.55, 14.935]},
 			"faces": {
 				"north": {"uv": [10, 11, 11, 12], "rotation": 180, "texture": "#1"},
-				"east": {"uv": [10, 11, 11, 12], "rotation": 270, "texture": "#1"},
 				"south": {"uv": [10, 11, 11, 12], "texture": "#1"},
-				"west": {"uv": [10, 11, 11, 12], "rotation": 90, "texture": "#1"},
-				"up": {"uv": [10, 11, 11, 12], "rotation": 180, "texture": "#1"},
 				"down": {"uv": [10, 11, 11, 12], "texture": "#1"}
 			}
 		},
@@ -328,7 +288,7 @@
 			"name": "Chamber",
 			"origin": [7.7, 3.625, 16.4],
 			"color": 0,
-			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 		}
 	]
 }

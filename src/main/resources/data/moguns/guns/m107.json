@@ -1,0 +1,46 @@
+{
+    "general": {
+        "auto": false,
+        "rate": 20,
+        "gripType": "cgm:two_handed",
+        "maxAmmo": 10,
+        "reloadAmount": 1,
+        "recoilKick": 1,
+        "recoilAngle": 15,
+        "alwaysSpread": false,
+        "spread": 0
+    },
+    "projectile": {
+        "item": "moguns:50_bmg",
+        "visible": false,
+        "damage": 24,
+        "size": 0.2,
+        "speed": 30.0,
+        "life": 200
+    },
+    "sounds": {
+        "fire": "moguns:item.50_bmg.fire",
+        "reload": "cgm:item.pistol.reload",
+        "cock": "moguns:item.50_bmg.cock"
+    },
+    "display": {
+        "flash": {
+            "yOffset": 1.5,
+            "zOffset": -17.5,
+            "scale": 5.0
+        }
+    },
+    "modules": {
+        "zoom": {
+            "fovModifier": 0.6,
+            "yOffset": 3.85,
+            "zOffset": -5.0
+        },
+        "attachments": {
+            "scope": {
+                "yOffset": 2.25,
+                "zOffset": 13.5
+            }
+        }
+    }
+}

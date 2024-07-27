@@ -14,8 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 public class LootBusEvent {
 
     @SubscribeEvent
-    public static void registerModifierSerializers(@Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>>
-                                                           event) {
+    public static void registerModifierSerializers(@Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
         event.getRegistry().registerAll(
                 new HogBonkerFromBruteAdditionModifier.Serializer().setRegistryName
                         (new ResourceLocation(MoGuns.MOD_ID,"hog_bonker_from_brute"))

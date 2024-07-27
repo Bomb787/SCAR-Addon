@@ -48,86 +48,57 @@ public class FlareProjectileEntity extends ProjectileEntity {
 	
 	@Override
 	protected void onProjectileTick() {
-		
 		if(this.level.isClientSide) {
-
 			for(int i = 0; i < 2; i++) {
                 this.level.addParticle(ParticleInit.FLARE_SMOKE.get(), true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
                 this.level.addParticle(ParticleTypes.LAVA, true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
                 this.level.addParticle(ParticleTypes.LAVA, true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
                 this.level.addParticle(ParticleTypes.LAVA, true, this.getX() - (this.getDeltaMovement().x() / i), this.getY() - (this.getDeltaMovement().y() / i), this.getZ() - (this.getDeltaMovement().z() / i), 0, 0, 0);
             }
-			
 		}
-		
 	}
 	
 	@Override
 	public void tick() {
 		super.tick();
-		
 		if(!this.level.isClientSide) {
-			
 			Vec3 startVec = this.position();
             Vec3 endVec = startVec.add(this.getDeltaMovement());
-            
             HitResult result = rayTraceBlocks(this.level, new ClipContext(startVec, endVec, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this), IGNORE_LEAVES);
-			
             this.onHit(result, startVec, endVec);
-            
 		}
-		
-		
 	}
 	
 	@Override
 	protected void onHitEntity(Entity entity, Vec3 hitVec, Vec3 startVec, Vec3 endVec, boolean headshot) {
 		super.onHitEntity(entity, hitVec, startVec, endVec, headshot);
-		
 		entity.setSecondsOnFire(20);
-		
 	}
 	
 	/**
 	 * Sets blocks on fire
 	 */
 	private void onHit(HitResult result, Vec3 startVec, Vec3 endVec) {
-		
 		if(MinecraftForge.EVENT_BUS.post(new GunProjectileHitEvent(result, this))) {
-			
             return;
-            
         }
-
         if(result instanceof BlockHitResult) {
-        	
             BlockHitResult blockRayTraceResult = (BlockHitResult) result;
-            
             if(blockRayTraceResult.getType() == HitResult.Type.MISS) {
                 return;
             }
-
             Vec3 hitVec = result.getLocation();
             BlockPos pos = blockRayTraceResult.getBlockPos();
-            
             if(Config.COMMON.gameplay.griefing.setFireToBlocks.get()) {
-            	
                 BlockPos offsetPos = pos.relative(blockRayTraceResult.getDirection());
-                
                 if(BaseFireBlock.canBePlacedAt(this.level, offsetPos, blockRayTraceResult.getDirection())) {
-                	
                     BlockState fireState = BaseFireBlock.getState(this.level, offsetPos);
                     this.level.setBlock(offsetPos, fireState, 11);
                     ((ServerLevel) this.level).sendParticles(ParticleTypes.LAVA, hitVec.x - 1.0 + this.random.nextDouble() * 2.0, hitVec.y, hitVec.z - 1.0 + this.random.nextDouble() * 2.0, 4, 0, 0, 0, 0);
-                    
                 }
-                
             }
-            
             return;
-            
         }
-		
 	}
 
 	/**

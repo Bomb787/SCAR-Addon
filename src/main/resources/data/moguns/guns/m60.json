@@ -1,0 +1,39 @@
+{
+    "general": {
+        "auto": true,
+        "rate": 2,
+        "gripType": "cgm:two_handed",
+        "maxAmmo": 100,
+        "reloadAmount": 5,
+        "recoilKick": 0.15,
+        "recoilAngle": 2,
+        "alwaysSpread": true,
+        "spread": 3.0
+    },
+    "projectile": {
+        "item": "moguns:762x51",
+        "visible": false,
+        "damage": 8,
+        "size": 0.2,
+        "speed": 30.0,
+        "life": 100
+    },
+    "sounds": {
+        "fire": "moguns:item.m60.fire",
+        "reload": "cgm:item.pistol.reload",
+        "cock": "moguns:item.m60.cock"
+    },
+    "display": {
+        "flash": {
+            "yOffset": 3.5,
+            "zOffset": -20
+        }
+    },
+    "modules": {
+        "zoom": {
+            "fovModifier": 0.6,
+            "yOffset": 6.75,
+            "zOffset": 2.75
+        }
+    }
+}
